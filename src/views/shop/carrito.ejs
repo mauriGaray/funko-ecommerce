@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <title>Carrito</title>
+  </head>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main class="container">
+      <section>
+        <div>
+          <h2 class="carrito__titles">Carrito de compras</h2>
+        </div>
+        <article class="carrito__article__head">
+          <span>
+            <h6 class="carrito__article__head--tit">Detalle del producto</h6>
+          </span>
+          <span>
+            <h6 class="carrito__article__head--tit">Cantidad</h6>
+          </span>
+          <span>
+            <h6 class="carrito__article__head--tit">Total</h6>
+          </span>
+        </article>
+        <ul id="product-list-container"></ul>
+      </section>
+      <section class="carrito__resumen">
+        <div>
+          <h2 class="carrito__resumen__title">Resumen</h2>
+        </div>
+
+        <div class="carrito__resumen__detalles">
+          <table class="carrito__resumen__tabla">
+            <tr>
+              <th class="carrito__resumen__subtit">Cantidad de elementos</th>
+              <th class="carrito__resumen__cant" id="cantidad-de-elementos">
+                No hay elementos en tu carrito
+              </th>
+            </tr>
+            <tr>
+              <th class="carrito__resumen__subtit">Subtotal</th>
+              <th class="carrito__resumen__cant" id="subtotal-precio">$ 0</th>
+            </tr>
+            <tr>
+              <th class="carrito__resumen__subtit">Envío</th>
+              <th class="carrito__resumen__cant">$ 0</th>
+            </tr>
+            <tr>
+              <th
+                class="carrito__resumen__pagar carrito__resumen__tabla--borde">
+                Total
+              </th>
+              <th
+                class="carrito__resumen__monto-pagar carrito__resumen__tabla--borde"
+                id="monto-a-pagar">
+                $ 0
+              </th>
+            </tr>
+          </table>
+        </div>
+
+        <button class="carrito__boton__pagar">Ir a pagar</button>
+      </section>
+    </main>
+
+    <!--FOOTER -->
+
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="/JS/showCart.js"></script>
+  </body>
+</html>

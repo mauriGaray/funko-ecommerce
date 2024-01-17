@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <style>
+      .construction-container {
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+
+        background-color: #fff;
+      }
+    </style>
+
+    <title>FunkoShop</title>
+  </head>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <div class="construction-container container">
+      <h1>¡Estamos trabajando en algo genial!</h1>
+      <p>La sección de Funkos está actualmente en construcción.</p>
+      <p>Vuelve pronto para descubrir las novedades.</p>
+      <img id="building" src="\enContruccion.jpg" alt="En construcción" />
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

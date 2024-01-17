@@ -1,0 +1,42 @@
+{
+  "name": "funkoshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node index.js",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauriGaray/funkoshop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mauriGaray/funkoshop/issues"
+  },
+  "homepage": "https://github.com/mauriGaray/funkoshop#readme",
+  "dependencies": {
+    "@glidejs/glide": "^3.6.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-session": "^2.0.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.2",
+    "path": "^0.12.7",
+    "router": "^1.3.8",
+    "sharp": "^0.33.1",
+    "uuid": "^9.0.1"
+  }
+}

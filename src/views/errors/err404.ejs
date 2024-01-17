@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <style>
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+      }
+
+      .error-title {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: red;
+      }
+
+      .error-text {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+      }
+
+      .error-link {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #000;
+        text-decoration: none;
+        border-bottom: 2px solid #000;
+      }
+
+      .error-link:hover {
+        color: #000;
+        border-bottom: 2px solid #000;
+      }
+    </style>
+
+    <title>404 Page not found</title>
+  </head>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <main class="main-container">
+      <section class="error-container">
+        <h2 class="error-title">¡Error 404 - Página no encontrada!</h2>
+        <p class="error-text">
+          La página que estás buscando no existe o ha sido eliminada.
+        </p>
+        <a class="error-link" href="/">Volver a la página de inicio</a>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="../JS/GlideJS/glide.js"></script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <title>Elegí el tuyo!</title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main id="shop" class="container">
+  <aside class="shop__filters filters">
+      <div class="filters__search">
+          <label  class="filters__title" for="search">BUSCAR</label>
+          <input type="text" name="search" id="search" placeholder="item o categoría">
+      </div>
+      <div class="filters__order">
+          <label  class="filters__title" for="orderby">ORDERNAR POR</label>
+          <select name="orderby" id="orderby">
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+              <option value="desc">Mayor precio</option>
+              <option value="asc">Menor precio</option>
+          </select>
+      </div>
+      <div class="filters__price">
+          <span class="filters__title" >PRECIO</span>
+          <div>
+              <label for="min">MIN</label>
+              <input type="text" name="min" id="min" placeholder="0">
+              <label for="max">- MAX</label>
+              <input type="text" name="max" id="max" placeholder="0">
+          </div>
+      </div>
+      <div class="filters__checks">
+          <span class="filters__title" for="filter">FILTRAR</span>
+          <div>
+              <input type="checkbox" name="filter" id="news" value="news">
+              <label for="">NUEVOS</label>
+          </div>
+          <div>
+              <input type="checkbox" name="filter" id="offers" value="offers">
+              <label for="">OFERTAS</label>
+          </div>
+          <div>
+              <input type="checkbox" name="filter" id="specials" value="specials">
+              <label for="">EDICIÓN ESPECIAL</label>
+          </div>
+          <div>
+              <input type="checkbox" name="filter" id="favs" value="favs">
+              <label for="">FAVORITOS</label>
+          </div>
+      </div>
+  </aside>
+  <section class="shop__content">
+      <ul class="shop__items">
+          <% items.forEach( item => { %>
+            <li class="shop__item">
+                <article class="card-item">
+                    <a class="card-item__link" href="/shop/item/<%= item.product_id%>">
+                       <picture class="card-item__cover">
+                            <span class="card-item__tag">Nuevo</span>
+                            <img class="card-item__img--front" src="../../img<%= item.image_front%>" alt="Figura coleccionable Funko de un Stormtrooper">
+                            <img class="card-item__img--back" src="../../img<%= item.image_back%>" alt="Figura coleccionable Funko de un Stormtrooper en caja">
+                        </picture>
+                       <div class="card-item__content">
+                            <p class="card-item__licence"><%= item.licence_name%></p>
+                            <h4 class="card-item__name"><%= item.product_name%></h4>
+                            <p class="card-item__price">$ <%= item.price%></p>
+                            <p class="card-item__promo"><%= item.dues%> CUOTAS SIN INTERÉS</p>
+                       </div>
+                    </a>
+                </article>
+            </li>
+          <% }); %>
+      </ul>
+     <section class="pagination">
+         <% const totalPagesValue = totalPages || 1; %> <% for (let i = 1; i <=
+          totalPagesValue; i++) { %>
+          <a class="pagination__link" href="/shop?page=<%= i %>"><%= i %></a>
+          <% } %>
+      </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const prevPageButton = document.getElementById("prevPage");
+        const nextPageButton = document.getElementById("nextPage");
+        const pagination = document.getElementById("pagination2");
+
+        let currentPage = 1; // Página actual, inicializada en 1
+
+        // Función para manejar el cambio de página
+        function showPage(page) {
+          // Puedes agregar lógica adicional aquí, como hacer una solicitud AJAX para obtener los productos de la página.
+          console.log(`Mostrar página ${page}`);
+        }
+
+        // Manejar clic en la flecha izquierda
+        prevPageButton.addEventListener("click", function () {
+          if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+          }
+        });
+
+        // Manejar clic en la flecha derecha
+        nextPageButton.addEventListener("click", function () {
+          if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+          }
+        });
+
+        // Manejar clic en los enlaces de paginación
+        pagination.addEventListener("click", function (event) {
+          if (event.target.classList.contains("pagination__link")) {
+            currentPage = parseInt(event.target.textContent);
+            showPage(currentPage);
+          }
+        });
+      });
+    </script>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  </body>
+</html>

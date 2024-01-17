@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <title><%= item.product_name %></title>
+  </head>
+
+  <body>
+    <%- include('../partials/header') %>
+    <main class="container">
+      <section class="item">
+        <picture class="item__img card-item__cover">
+          <img
+            class="card-item__img--front"
+            src="../../img<%= item.image_front %>"
+            alt="<%= item.product_description %>" />
+          <img
+            class="card-item__img--back"
+            src="../../img<%= item.image_back %>"
+            alt="<%= item.product_description %>" />
+        </picture>
+        <article class="item__info">
+          <p class="item__licence"><%= item.licence_name %></p>
+          <h3 class="item__name"><%= item.product_name %></h3>
+          <p class="item__description"><%= item.product_description %></p>
+          <p class="item__price">$<%= item.price %></p>
+          <form
+            class="item__cart"
+            action="/shop/item/add"
+            method="post"
+            enctype="application/x-www-form-urlencoded">
+            <input
+              type="hidden"
+              name="id"
+              id="product-id"
+              value="<%= item.product_id %>" />
+            <input
+              type="hidden"
+              name="name"
+              id="product-name"
+              value="<%= item.product_name %>" />
+            <input
+              type="hidden"
+              name="product_price"
+              id="product-price"
+              value="<%= item.price %>" />
+            <input
+              type="hidden"
+              name="product_license"
+              id="product-license"
+              value="<%= item.licence_name %>" />
+            <input
+              type="hidden"
+              name="img"
+              id="product-img"
+              value="../../img<%= item.image_front %>" />
+
+            <button id="subtract" class="item__quantity" type="button">
+              -
+            </button>
+            <input
+              value="1"
+              min="1"
+              id="quantity"
+              class="item__input"
+              type="text"
+              name="quantity" />
+            <button id="add" class="item__quantity" type="button">+</button>
+            <button
+              class="item__submit btn btn--primary btn--medium"
+              id="add-to-cart"
+              type="submit">
+              Agregar al carrito
+            </button>
+          </form>
+          <p class="item__promo">
+            <a href="">Ver métodos de pago</a> - 3 CUOTAS SIN INTERÉS
+          </p>
+        </article>
+      </section>
+      <section class="slider container glide">
+        <h2 class="slider__title">Últimos Lanzamientos</h2>
+        <div class="glide__track" data-glide-el="track">
+          <ul class="slider__items glide__slides">
+            <% relatedData.forEach(product => { %>
+            <li class="slider__item glide__slide">
+              <article class="card-item">
+                <a
+                  class="card-item__link"
+                  href="/shop/item/<%= product.product_id %>">
+                  <picture class="card-item__cover">
+                    <span class="card-item__tag">NUEVO</span>
+                    <img
+                      class="card-item__img--front"
+                      src="../../img<%= product.image_front %>"
+                      alt="<%= product.product_description %>" />
+                    <img
+                      class="card-item__img--back"
+                      src="../../img<%= product.image_back %>"
+                      alt="<%= product.product_description %>" />
+                  </picture>
+
+                  <div class="card-item__content">
+                    <p class="card-item__licence">
+                      <%= product.licence_name %>
+                    </p>
+                    <h4 class="card-item__name"><%= product.product_name %></h4>
+                    <p class="card-item__price">$ <%= product.price %></p>
+                    <p class="card-item__promo">
+                      <%= `En ${product.dues} cuotas sin interés` %>
+                    </p>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <% }) %>
+          </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+            <iconify-icon
+              icon="tabler:chevron-up"
+              rotate="270deg"></iconify-icon
+            >>
+          </button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+            <iconify-icon
+              icon="tabler:chevron-up"
+              rotate="90deg"></iconify-icon>
+          </button>
+        </div>
+      </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="/JS/GlideJS/glide.js"></script>
+    <script src="/JS/detail.js"></script>
+    <script src="/JS/addToCart.js"></script>
+  </body>
+</html>
