@@ -1,7 +1,7 @@
 
 # FunkoShop Ecommerce
 
-his is an e-commerce platform featuring various sections such as contact, login, shop, and cart. The payment gateway integrated into the system is MercadoPago.
+This is an e-commerce platform featuring various sections such as contact, login, shop, and cart. The payment gateway integrated into the system is MercadoPago.
 
 Feel free to explore the different sections of the website and enjoy your shopping experience with MercadoPago as the secure payment method.
 
